@@ -1,0 +1,18 @@
+<header class="navbar">
+  <a href="/">
+    <div class="navStart">
+      <i class="fa-solid fa-hippo"></i>
+      <div class="navTitle">Odin Drive</div>
+    </div>
+  </a>
+  <% if (locals.user) {%>
+  <div class="navEnd">
+    <div><i class="bi bi-person-circle"></i> <%= user.username %></div>
+    <a href="/logout">Log Out</a>
+  </div>
+  <% } else { %>
+  <div class="navEnd">
+    <a href="/signup">Sign Up</a>
+  </div>
+  <% } %>
+</header>

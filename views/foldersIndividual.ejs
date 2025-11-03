@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= folder.name %> | Odin Drive</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/micromodal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <div class="containerLoggedIn">
+        <%- include("partials/sidebar.ejs") %>
+        <div class="containerContent">
+          <div class="fileGrid">
+            <h1>
+              <i class="bi bi-folder"></i> <%= user.username %>'s Files > <%=
+              folder.name %>
+            </h1>
+
+            <div class="fileGridHeader">
+              <div>Name</div>
+              <div>Size</div>
+              <div>Uploaded at</div>
+            </div>
+
+            <% if (files.length == 0) { %>
+            <div><i class="bi bi-exclamation-circle"></i> No files found!</div>
+            <% } %> <% files.forEach((file) => { %>
+            <div class="fileGridRow">
+              <div><%= file.name %></div>
+              <div><%= file.size %></div>
+              <div><%= file.uploadtime %></div>
+              <div class="fileButtons">
+                <button>
+                  <i class="bi bi-folder" data-micromodal-trigger="modal-3"></i>
+                </button>
+                <a href="/files/<%= file.id %>/download" download
+                  ><button><i class="bi bi-download"></i></button
+                ></a>
+                <form
+                  action="/files/<%= file.id %>/delete"
+                  method="POST"
+                  onsubmit="return confirm('Are you sure you want to delete this file?')"
+                >
+                  <button type="submit"><i class="bi bi-trash3"></i></button>
+                </form>
+              </div>
+            </div>
+            <%- include("partials/changefolderModal.ejs", { file: file }) %>
+            <%}); %>
+            <form
+              action="/folders/<%= folder.id %>/delete"
+              method="POST"
+              onsubmit="return confirm('Are you sure you want to delete this folder?')"
+            >
+              <button type="submit">Delete Folder</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("partials/fileModal.ejs") %> <%-
+    include("partials/folderModal.ejs") %>
+
+    <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
+    <script>
+      MicroModal.init();
+
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", function (e) {
+          const btn = this.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = "Uploading...";
+        });
+    </script>
+  </body>
+</html>

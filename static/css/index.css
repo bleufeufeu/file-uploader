@@ -1,0 +1,48 @@
+.containerLoggedIn {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  flex: 1;
+  height: 100%;
+}
+
+.fileGrid {
+  display: grid;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.fileGridRow,
+.fileGridHeader {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+}
+
+.fileGridRow {
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0 0.2rem;
+  color: var(--text-secondary);
+}
+
+.fileButtons {
+  opacity: 0;
+  display: flex;
+}
+
+.fileButtons button {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+}
+
+.fileGridRow:hover .fileButtons {
+  opacity: 1;
+}
+
+.bi-folder:hover,
+.bi-download:hover,
+.bi-trash3:hover {
+  filter: brightness(75%);
+  cursor: pointer;
+}

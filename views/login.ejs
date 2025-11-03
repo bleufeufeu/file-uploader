@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Log In | Odin Drive</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <div class="loginContainer">
+        <div class="box-bg userForm">
+          <h1>Login</h1>
+          <% if (locals.error) {%>
+          <ul>
+            <li><%= error %></li>
+          </ul>
+          <% } %>
+          <form action="/login" method="POST">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              type="text"
+            />
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+            <button type="submit">Log In</button>
+          </form>
+          <div class="center">
+            Don't have an account? <a href="/signup">Sign up here</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

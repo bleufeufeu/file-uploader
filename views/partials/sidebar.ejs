@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <div>
+    <div class="sidebutton" data-micromodal-trigger="modal-2">
+      <i class="bi bi-folder-plus"></i> New Folder
+    </div>
+    <div class="sidebutton" data-micromodal-trigger="modal-1">
+      <i class="bi bi-file-earmark-arrow-up"></i> New File
+    </div>
+    <a href="/">
+      <div class="sidebutton"><i class="bi bi-house"></i> All Files</div>
+    </a>
+  </div>
+
+  <div class="folderList">
+    <% folders.forEach((folder) => { %>
+    <a href="/folders/<%= folder.id %>">
+      <div class="sidebutton">
+        <i class="bi bi-folder"></i> <%= folder.name %>
+      </div>
+    </a>
+    <%}); %>
+  </div>
+</div>

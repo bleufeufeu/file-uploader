@@ -1,0 +1,127 @@
+@import url("navbar.css");
+@import url("sidebar.css");
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
+}
+
+:root {
+  font-family: Roboto, sans-serif;
+  --bg-primary: #202124;
+  --bg-secondary: #292a2d;
+  --bg-tertiary: #35363a;
+  --text-primary: #e8eaed;
+  --text-secondary: #d2d3d4;
+  --text-muted: #5f6368;
+  --accent: #8ab4f8;
+  --accent-hover: #aecbfa;
+  --border: #3c4043;
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--bg-primary);
+  font-size: 1.3rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+h1 {
+  color: var(--accent);
+  font-size: 150%;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea,
+button,
+select {
+  font-size: 1.3rem;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid var(--accent);
+}
+
+button {
+  background-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--accent-hover);
+}
+
+.box-bg {
+  background-color: var(--bg-secondary);
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+.loginContainer {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50vw;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.userForm h1,
+.center {
+  text-align: center;
+}
+
+.userForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  body {
+    margin: 1rem 5rem;
+  }
+
+  .userForm {
+    width: 60%;
+  }
+}

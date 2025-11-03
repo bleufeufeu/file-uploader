@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up | Odin Drive</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <div class="loginContainer">
+        <div class="box-bg userForm">
+          <h1>Sign Up</h1>
+          <% if (locals.errors) {%>
+          <ul>
+            <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+            <%}); %>
+          </ul>
+          <% } %>
+          <form action="/signup" method="POST">
+            <label for="firstname">First Name</label>
+            <input
+              id="firstname"
+              name="firstname"
+              placeholder="John"
+              value="<%= locals.formData ? formData.firstname : '' %>"
+              type="text"
+            />
+            <label for="lastname">Last Name</label>
+            <input
+              id="lastname"
+              name="lastname"
+              placeholder="Doe"
+              value="<%= locals.formData ? formData.lastname : '' %>"
+              type="text"
+            />
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              value="<%= locals.formData ? formData.username : '' %>"
+              type="text"
+            />
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value="<%= locals.formData ? formData.password : '' %>"
+            />
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              value="<%= locals.formData ? formData.confirmPassword : '' %>"
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+          <div class="center">
+            Already have an account? <a href="/login">Login here</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

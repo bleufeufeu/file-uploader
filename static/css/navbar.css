@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1vw 1vw;
+  gap: 10px;
+  justify-content: space-between;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.navEnd {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navStart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navStart,
+.navStart i {
+  font-size: 1.5em;
+}
+
+.navTitle {
+  text-decoration: var(--accent) wavy underline;
+}
