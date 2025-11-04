@@ -40,7 +40,7 @@
               <div><%= file.Folder?.name || 'N/A' %></div>
               <div class="fileButtons">
                 <button>
-                  <i class="bi bi-folder" data-micromodal-trigger="modal-3"></i>
+                  <i class="bi bi-folder" data-micromodal-trigger="modal-<%= file.id %>"></i>
                 </button>
                 <a href="/files/<%= file.id %>/download" download
                   ><button><i class="bi bi-download"></i></button

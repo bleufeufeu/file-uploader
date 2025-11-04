@@ -43,7 +43,12 @@ async function handleUpdateFolder(req, res, next) {
   const { fileId } = req.params;
   const file = await db.returnFileById(fileId);
 
+  console.log(file.name);
+
   const folderId = req.body.folder || null;
+
+  console.log(file.id);
+  console.log(folderId);
 
   if (!file) {
     return res.status(404).render("error", { errorMessage: "File not found!" });
